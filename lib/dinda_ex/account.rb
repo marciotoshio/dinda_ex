@@ -23,7 +23,7 @@ module DindaEx
     private 
     
     def apply_fine(transaction)
-      @balance -= 500 if is_in_debit? && transaction.is_debit?
+      @balance -= DindaEx::FINE_VALUE if is_in_debit? && transaction.is_debit?
     end
   end
 end

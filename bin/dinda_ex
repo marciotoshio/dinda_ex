@@ -3,7 +3,8 @@
 require 'dinda_ex'
 
 if (ARGV.length == 2) then
-    DindaEx::BalanceCalculator.new(ARGV[0], ARGV[1])
+    c = DindaEx::BalanceCalculator.new(ARGV[0], ARGV[1])
+    c.pretty_print
 else
     puts "Usage: dinda_ex accounts_file_path.csv transactions_file_path.csv"
 end

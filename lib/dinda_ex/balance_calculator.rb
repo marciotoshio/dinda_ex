@@ -19,10 +19,8 @@ module DindaEx
       @transactions.select{|t| t.account_id == account_id }
     end
     
-    def calculate_balances
-      @accounts.each do |account|
-        account.do_transactions(find_transactions(account.id))
-      end
+    def pretty_print
+      @accounts.each { |a| puts "#{a.id},#{a.balance}" }
     end
     
     private 
@@ -30,6 +28,12 @@ module DindaEx
     def init(path, class_name)
       klass  = Object.const_get(class_name)
       CSV.read(path).map{ |row| klass.new(row[0].to_i, row[1].to_i)}
+    end
+    
+    def calculate_balances
+      @accounts.each do |account|
+        account.do_transactions(find_transactions(account.id))
+      end
     end
   end
 end

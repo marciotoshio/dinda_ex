@@ -7,5 +7,9 @@ module DindaEx
       @account_id = account_id
       @value = value 
     end
+    
+    def is_debit?
+        @value < 0
+    end
   end
 end

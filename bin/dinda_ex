@@ -2,4 +2,8 @@
 
 require 'dinda_ex'
 
-DindaEx::BalanceCalculator.new(ARGV[0], ARGV[1])
+if (ARGV.length == 2) then
+    DindaEx::BalanceCalculator.new(ARGV[0], ARGV[1])
+else
+    puts "Usage: dinda_ex accounts_file_path.csv transactions_file_path.csv"
+end
